@@ -1,0 +1,4 @@
+.box{width: 1000px; margin:0 auto; background: #eeee;display: flex}
+
+.closeBtn{position: absolute;right:0;top:0;font-size: 26px;color:#000000;line-height: 1}
+.cardItem{position:relative;background:#fff; margin-bottom: 15px;padding-left:20px;}
