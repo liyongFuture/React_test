@@ -77,7 +77,7 @@ class Shopping extends Component {
 			<div className='box'>
 				<div style={{width:'700px'}}>
 					<div style={{textAlign:'center'}}>
-						<h1 style={{color:'green'}}>LY React_demo</h1>
+						<h1 style={{color:'green'}}>Branch Test</h1>
 					</div>
 		            <div>
 		                <div style={{"marginLeft":"5%"}}>
