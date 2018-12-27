@@ -32,12 +32,14 @@ class RegistrationForm extends Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 // 使用post 请求，变成 options 请求  ；使用 JSON.stringify(values) 转化
+
                 Axios.post('http://localhost:3030/addFruits', qs.stringify(values))
                     .then((res) => {
-                        if (res.status == 200) {
+                        if (res.status === 200) {
                             this.setState({
                                 visible: false
                             });
+                            this.props.refreshIndex()
                         }
                     })
                     .catch((err) => {

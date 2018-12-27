@@ -23,7 +23,18 @@ class ProductsContainer extends Component {
             <div>
                <Row>
                     {
-                        this.props.productsList.map((item,index)=><Picframe quantity={item.quantity} source={item.path} key = {index} name={item.name} addCart = {this.props.addCart} index = {index} price = {item.price}/>)
+                        this.props.productsList.map((item, index) => {
+                            return <Picframe 
+                                quantity={item.quantity} 
+                                key = {index} 
+                                name={item.name} 
+                                addCart = {this.props.addCart} 
+                                index = {index} 
+                                price = {item.price} 
+                                id = {item.id}  
+                                getAllList = { this.props.getAllList } 
+                            />
+                        })
                     }
                 </Row>
             </div>

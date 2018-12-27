@@ -20,18 +20,23 @@ class Shopping extends Component {
 			cardList: {}
 		}
 		this.addCart = this.addCart.bind(this)
+		this.getAllList = this.getAllList.bind(this)
 	}
 
 	componentWillMount() {
-		Axios.get('http://localhost:3030/allFruits')
-			.then((res) => {
+		this.getAllList()
+	}
+	async getAllList() {
+		try {
+			let result = await Axios.get('http://localhost:3030/allFruits')
+			if (result.status === 200) {
 				this.setState({
-					productsList: res.data
-				})
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+					productsList: result.data
+				});
+			}
+		} catch (err) {
+			console.log(err);
+		}
 	}
 
 	searchItem() {
@@ -68,23 +73,20 @@ class Shopping extends Component {
 
 	}
 
-	handleRemove() {
-
-	}
 
 	render() {
 		return (
 			<div className='box'>
 				<div style={{width:'700px'}}>
 					<div style={{textAlign:'center'}}>
-						<h1 style={{color:'green'}}>LY React_demo</h1>
+						<h1 style={{color:'green'}}>Branch Test</h1>
 					</div>
 		            <div>
 		                <div style={{"marginLeft":"5%"}}>
 		                    <div>
 		                    	<Row>
 		                    		<Col span = {5}>
-		                    			<Addfruit />
+		                    			<Addfruit refreshIndex = { this.getAllList } />
 		                    		</Col>
 		                    		<Col span={14}>
 		                    			<Search />
@@ -92,7 +94,11 @@ class Shopping extends Component {
 		                    	</Row>
 		                        
 		                        <hr/>
-		                        <ProductsContainer productsList = {this.state.productsList} addCart={this.addCart}  />
+		                        <ProductsContainer 
+		                        	productsList = {this.state.productsList} 
+		                        	addCart={this.addCart} 
+									getAllList = { this.getAllList }
+		                        />
 		                    </div>
 		                </div>
 		            </div>
