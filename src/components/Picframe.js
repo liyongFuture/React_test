@@ -34,7 +34,7 @@ class Picframe extends Component {
     let that = this
     try {
       confirm({
-        title: '你确定删除该产品吗？',
+        title: '你确定删除这一项吗？',
         okText: 'Yes',
         okType: 'danger',
         cancelText: 'No',
